@@ -35,7 +35,7 @@ export const VerifyOTP =()=>{
         },
         validationSchema: formValidationSchema,
         onSubmit: async (values) => {
-          const data = await fetch(`https://phonecart.onrender.com/verifyotp`, {
+          const data = await fetch(`https://ticketbooker.onrender.com/verifyotp`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(values),

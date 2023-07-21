@@ -39,7 +39,7 @@ export const Signup =()=>{
         },
         validationSchema: formValidationSchema,
         onSubmit: async (values) => {
-          const data = await fetch(`https://phonecart.onrender.com/Signup`, {
+          const data = await fetch(`https://ticketbooker.onrender.com/Signup`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(values),

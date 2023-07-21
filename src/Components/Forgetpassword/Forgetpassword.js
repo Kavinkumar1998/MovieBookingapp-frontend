@@ -34,7 +34,7 @@ export const Forgetpassword =()=>{
         },
         validationSchema: formValidationSchema,
         onSubmit: async (values) => {
-          const data = await fetch(`https://phonecart.onrender.com/Forgetpassword`, {
+          const data = await fetch(`https://ticketbooker.onrender.com/Forgetpassword`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(values),

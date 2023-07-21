@@ -35,7 +35,7 @@ export const Setpassword =()=>{
         },
         validationSchema: formValidationSchema,
         onSubmit: async (values) => {
-          const data = await fetch(`https://phonecart.onrender.com/Setpassword`, {
+          const data = await fetch(`https://ticketbooker.onrender.com/Setpassword`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(values),
