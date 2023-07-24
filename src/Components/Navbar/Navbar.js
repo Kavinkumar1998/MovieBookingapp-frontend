@@ -14,24 +14,44 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-        <div className='navbar-left'>
-            <div className="navbar-name">Phone Cart</div>
-    
-             </div>
-        <div className='navbar-right'> 
-        <div className="navbar-list" >
+   <header className="mycinemas-header">
+      <div className="icon-header" >
+        <div className="myicon-header">ZEN</div>
+        <div className="myicon2-header">Cinemas</div>
+      </div>
+
+      <div>
+        <input type="checkbox" id="active" />
+        <label htmlFor="active" className="menu-btn">
+          <span />
+        </label>
+        <label htmlFor="active" className="close" />
+        <div className="wrapper">
         <ul style={{listStyleType:"none"}}>
-        <Link  to="/Home">   <li>Home</li> </Link>
-          <Link  to="/Cart"> <li>Cart</li></Link>
-          <Link  to="/Order"> <li>Order</li></Link>
-           <Link  to="/Info"> <li>About</li></Link>
-           <li  onClick={()=>logout()}>Logout</li>
-          
-        </ul>
+            <li>
+            <Link  to="/Home">   <li>Home</li> </Link>
+            </li>
+            <li>
+            <Link  to="/Cart"> <li>Cart</li></Link>
+            </li>
+            <li>
+            <Link  to="/Order"> <li>Order</li></Link>
+            </li>
+            <li>
+            <Link  to="/Info"> <li>About</li></Link>
+            </li>
+            <li>
+            <li  onClick={()=>logout()}>Logout</li>
+            </li>
+          </ul>
         </div>
-        </div>
+      </div>
+    </header>
+
+     
     </div>
   )
 }
 
 export default Navbar
+

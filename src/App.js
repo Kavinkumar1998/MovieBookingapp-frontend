@@ -5,6 +5,8 @@ import { Login } from './Components/Login/Login';
 import { Forgetpassword } from './Components/Forgetpassword/Forgetpassword';
 import { VerifyOTP } from './Components/Verifyotp/Verifyotp';
 import { Setpassword } from './Components/Setpassword/Setpassword';
+import Header from './Components/Home/Home';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
@@ -30,6 +32,14 @@ function App() {
      <Setpassword/>
       </Route>
      
+     
+      <Route path="/Home">
+     <Header/>
+      </Route>
+
+      <Route path="/Navbar">
+     <Navbar/>
+      </Route>
     </div>
   );
 }
