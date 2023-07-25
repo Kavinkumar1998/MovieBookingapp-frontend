@@ -154,7 +154,7 @@ input[type="checkbox"] {
   transition-delay: 0.6s;
   transform: translateX(-100px);
 }
-.icon-header {
+.title-header {
   position: static;
   margin-top: 15px;
   margin-left: 25px;
@@ -163,14 +163,18 @@ input[type="checkbox"] {
   gap: 3px;
   text-shadow: 1.5px 1.5px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap:1rem;
 }
 
-.myicon-header,
-.myicon2-header {
+.title1-header,
+.title2-header {
   font-size: 30px;
   font-weight: 900;
   text-shadow: 1px 1px black;
+
 }
-.myicon2-header {
+.title2-header {
   color: red;
 }

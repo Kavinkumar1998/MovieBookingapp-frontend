@@ -15,9 +15,9 @@ const Navbar = () => {
   return (
     <div className="navbar">
    <header className="mycinemas-header">
-      <div className="icon-header" >
-        <div className="myicon-header">ZEN</div>
-        <div className="myicon2-header">Cinemas</div>
+      <div className="title-header" >
+        <div className="title1-header">ZEN</div>
+        <div className="title2-header">Cinemas</div>
       </div>
 
       <div>

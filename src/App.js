@@ -5,8 +5,9 @@ import { Login } from './Components/Login/Login';
 import { Forgetpassword } from './Components/Forgetpassword/Forgetpassword';
 import { VerifyOTP } from './Components/Verifyotp/Verifyotp';
 import { Setpassword } from './Components/Setpassword/Setpassword';
-import Header from './Components/Home/Home';
 import Navbar from './Components/Navbar/Navbar';
+import { Home } from './Components/Home/Home';
+import { Ticket } from './Components/Ticket/Ticket';
 
 function App() {
   return (
@@ -32,14 +33,20 @@ function App() {
      <Setpassword/>
       </Route>
      
-     
-      <Route path="/Home">
-     <Header/>
-      </Route>
 
       <Route path="/Navbar">
      <Navbar/>
       </Route>
+
+      <Route path="/Home">
+        <Home/>
+      </Route>
+
+      <Route path="/BookTicket">
+        <Ticket/>
+      </Route>
+
+
     </div>
   );
 }
