@@ -1,0 +1,36 @@
+.Home-main{
+    margin-top:3.5rem;
+    height: auto;
+}
+.mySwiper{
+
+}
+.swiper-slide{
+
+}
+.backdrop{
+    width: 100%;
+    height: 85vh;
+}
+.backdrop-content{
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background color to make the text more readable */
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+
+}
+.backdrop-details-title{
+    font-weight: bolder;
+    font-size:4rem;
+    margin-top:16rem;
+}
+.backdrop-details{
+font-weight: bolder;
+font-size: large;
+padding: 8px;
+}

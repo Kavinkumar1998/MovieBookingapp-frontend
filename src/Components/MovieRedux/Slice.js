@@ -3,10 +3,10 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 const initialState={
     movieList:[],
     BookingList:[],
-    selectedBookong:{},
+    selectedBooking:{},
     selectedMovie:{},
     isLoading:false,
-    error:" "
+    error:""
 
 }
 
@@ -26,7 +26,8 @@ export const getMovieFromServer= createAsyncThunk(
            });
            if(response.ok){
             const data = await response.json();
-            return data
+            console.log("movieList",data);
+            return data;
            }else{
             return rejectWithValue({ error: "No Movies Found" });
            }
@@ -168,10 +169,12 @@ const movieSlice = createSlice({
         .addCase(getMovieFromServer.fulfilled,(state,action)=>{
             state.isLoading=false;
             state.movieList=action.payload;
+            state.error = ''
         })
         .addCase(getMovieFromServer.rejected,(state,action)=>{
             state.isLoading=false;
-            state.movieList=action.payload.error;
+            state.movieList=[];
+            state.error = action.payload.error;
         })
         .addCase(getMovieById.pending,(state)=>{
             state.isLoading=true;
@@ -179,10 +182,12 @@ const movieSlice = createSlice({
         .addCase(getMovieById.fulfilled,(state,action)=>{
             state.isLoading=false;
             state.movieList=action.payload;
+            state.error = ''
         })
         .addCase(getMovieById.rejected,(state,action)=>{
             state.isLoading=false;
-            state.movieList=action.payload.error;
+            state.movieList=[];
+            state.error = action.payload.error;
         })
         .addCase(addMovie.pending,(state)=>{
             state.isLoading=true;
@@ -190,10 +195,12 @@ const movieSlice = createSlice({
         .addCase(addMovie.fulfilled,(state,action)=>{
             state.isLoading=false;
             state.movieList=action.payload;
+            state.error = ''
         })
         .addCase(addMovie.rejected,(state,action)=>{
             state.isLoading=false;
-            state.movieList=action.payload.error;
+            state.movieList=[];
+            state.error = action.payload.error;
         })
         .addCase(addBooking.pending,(state)=>{
             state.isLoading=true;
@@ -201,10 +208,12 @@ const movieSlice = createSlice({
         .addCase(addBooking.fulfilled,(state,action)=>{
             state.isLoading=false;
             state.BookingList=action.payload;
+            state.error = ''
         })
         .addCase(addBooking.rejected,(state,action)=>{
             state.isLoading=false;
-            state.BookingList=action.payload.error;
+            state.BookingList=[];
+            state.error = action.payload.error;
         })
         .addCase(BookingData.pending,(state)=>{
             state.isLoading=true;
@@ -212,10 +221,12 @@ const movieSlice = createSlice({
         .addCase(BookingData.fulfilled,(state,action)=>{
             state.isLoading=false;
             state.BookingList=action.payload;
+            state.error ='';
         })
         .addCase(BookingData.rejected,(state,action)=>{
             state.isLoading=false;
-            state.BookingList=action.payload.error;
+            state.BookingList=[];
+            state.error = action.payload.error;
         })
         .addCase(getBookingById.pending,(state)=>{
             state.isLoading=true;
@@ -223,10 +234,12 @@ const movieSlice = createSlice({
         .addCase(getBookingById.fulfilled,(state,action)=>{
             state.isLoading=false;
             state.BookingList=action.payload;
+            state.error ='';
         })
         .addCase(getBookingById.rejected,(state,action)=>{
             state.isLoading=false;
-            state.BookingList=action.payload.error;
+            state.BookingList=[];
+            state.error = action.payload.error;
         })
         .addCase(deleteBookingData.pending,(state)=>{
             state.isLoading=true;
@@ -234,10 +247,12 @@ const movieSlice = createSlice({
         .addCase(deleteBookingData.fulfilled,(state,action)=>{
             state.isLoading=false;
             state.BookingList=action.payload;
+            state.error ='';
         })
         .addCase(deleteBookingData.rejected,(state,action)=>{
             state.isLoading=false;
-            state.BookingList=action.payload.error;
+            state.BookingList=[];
+            state.error = action.payload.error;
         })
       
     }
