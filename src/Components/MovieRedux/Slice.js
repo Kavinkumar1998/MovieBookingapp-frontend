@@ -181,12 +181,12 @@ const movieSlice = createSlice({
         })
         .addCase(getMovieById.fulfilled,(state,action)=>{
             state.isLoading=false;
-            state.movieList=action.payload;
+            state.selectedMovie=action.payload;
             state.error = ''
         })
         .addCase(getMovieById.rejected,(state,action)=>{
             state.isLoading=false;
-            state.movieList=[];
+            state.selectedMovie={};
             state.error = action.payload.error;
         })
         .addCase(addMovie.pending,(state)=>{
@@ -233,12 +233,12 @@ const movieSlice = createSlice({
         })
         .addCase(getBookingById.fulfilled,(state,action)=>{
             state.isLoading=false;
-            state.BookingList=action.payload;
+            state.selectedMovie=action.payload;
             state.error ='';
         })
         .addCase(getBookingById.rejected,(state,action)=>{
             state.isLoading=false;
-            state.BookingList=[];
+            state.selectedMovie={};
             state.error = action.payload.error;
         })
         .addCase(deleteBookingData.pending,(state)=>{
@@ -246,12 +246,12 @@ const movieSlice = createSlice({
         })
         .addCase(deleteBookingData.fulfilled,(state,action)=>{
             state.isLoading=false;
-            state.BookingList=action.payload;
+            state.selectedMovie=action.payload;
             state.error ='';
         })
         .addCase(deleteBookingData.rejected,(state,action)=>{
             state.isLoading=false;
-            state.BookingList=[];
+            state.selectedMovie={};
             state.error = action.payload.error;
         })
       

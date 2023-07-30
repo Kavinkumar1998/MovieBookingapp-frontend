@@ -8,6 +8,7 @@ import { Setpassword } from './Components/Setpassword/Setpassword';
 import Navbar from './Components/Navbar/Navbar';
 import { Home } from './Components/Home/Home';
 import { Ticket } from './Components/Ticket/Ticket';
+import { MovieInfo } from './Components/MovieInfo/MovieInfo';
 
 function App() {
   return (
@@ -40,6 +41,10 @@ function App() {
 
       <Route path="/Home">
         <Home/>
+      </Route>
+
+      <Route path="/Info/:Id">
+        <MovieInfo/>
       </Route>
 
       <Route path="/BookTicket">
