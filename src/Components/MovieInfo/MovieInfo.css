@@ -5,8 +5,15 @@
 }
 .MovieInfo-content{
 position: absolute;
-margin-top:-15rem;
 padding: 5rem;
+margin-top: -1rem;
+display: flex;
+flex-direction: row;
+flex-basis: 100%;
+flex-wrap: wrap;
+flex:1;
+color: white;
+background-color: black;
 }
 .backdrop-mi{
     width: 100%;
@@ -16,5 +23,36 @@ padding: 5rem;
 .movieinfo-img{
 height:600px;
 border: 1px solid black;
+position: relative;
+}
 
+.MovieInfo-title{
+    font-weight: bolder;
+    font-size:4rem;
+    margin-top:15rem;
+}
+.MovieInfo-details{
+    font-weight: bolder;
+font-size: large;
+padding: 8px;
+}
+.MovieInfo-right{
+    margin-top:-14rem;
+    margin-left: 2rem;
+    flex:1;
+}
+.MovieInfo-right{
+    flex:1;
+}
+.trailer-backdrops{
+    flex-basis: 100%;
+    position:relative;
+    padding: 5rem;
+    background-color: black;
+   align-items: center;
+ margin-left: 4rem;
+}
+.trailer{
+    width:55rem;
+    height:30rem  
 }
