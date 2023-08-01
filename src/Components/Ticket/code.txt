@@ -1,0 +1,86 @@
+import React, { useEffect, useState } from 'react'
+import Navbar from '../Navbar/Navbar'
+import "./Ticket.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom'
+import { addBooking } from '../MovieRedux/Slice';
+
+
+
+const Seat = ({ seatNumber, isBooked, isSelected, onClick }) => {
+  const seatClass = isBooked ? 'seat booked' : isSelected ? 'seat selected' : 'seat';
+
+  return <div className={seatClass} onClick={onClick}>{seatNumber}</div>;
+};
+export const Ticket = () => {
+
+ 
+  const {selectedMovie,isLoading,BookingList} = useSelector((state) => state.movies);
+ const dispatch = useDispatch();
+ const history = useHistory();
+
+
+  const numRows = 8;
+  const numCols = 8;
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  const [seats, setSeats] = useState(
+    Array.from({ length: numRows }, (_, rowIndex) =>
+      Array.from({ length: numCols }, (_, colIndex) => ({
+        seatNumber: alphabet.charAt(rowIndex) + (colIndex + 1),
+        isBooked: Math.random() < 0.2, // 20% seats are booked for demonstration
+        isSelected: false,
+      }))
+    )
+  );
+
+  const handleSeatClick = (rowIndex, colIndex) => {
+    if (seats[rowIndex][colIndex].isBooked) return; // Prevent selecting booked seats
+    const newSeats = [...seats];
+    newSeats[rowIndex][colIndex].isSelected = !newSeats[rowIndex][colIndex].isSelected;
+    setSeats(newSeats);
+  };
+ 
+  return (
+    <div className="ticket-main">
+      <Navbar/>
+      <div className="content">
+      <div className="seat-map">
+      <div className="row-labels">
+        <div className="row-label" />
+        {Array.from({ length: numRows }, (_, index) => (
+          <div key={index} className="row-label">
+            {alphabet.charAt(index)}
+          </div>
+        ))}
+      </div>
+      <div className="matrix">
+        <div className="column-labels">
+          <div className="column-label" />
+          {Array.from({ length: numCols }, (_, index) => (
+            <div key={index} className="column-label">
+              {index + 1}
+            </div>
+          ))}
+        </div>
+        <div className="cells">
+          {seats.map((row, rowIndex) =>
+            row.map((seat, colIndex) => (
+              <Seat
+                key={`${rowIndex}-${colIndex}`}
+                seatNumber={seat.seatNumber}
+                isBooked={seat.isBooked}
+                isSelected={seat.isSelected}
+                onClick={() => handleSeatClick(rowIndex, colIndex)}
+              />
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  )
+}
+
+

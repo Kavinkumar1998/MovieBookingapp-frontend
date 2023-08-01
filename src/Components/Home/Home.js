@@ -60,8 +60,8 @@ console.log(movieList)
     <SwiperSlide className='swiper-slide' key={movies._id}>
       <div className="backdrop-content">
 <p className="backdrop-details-title">{movies.title}</p>
-<span className="backdrop-details"><span ><StarIcon className='icon' sx={{color:"yellow"}}/></span>{movies.imDbRating}</span>
-<span className="backdrop-details"><span ><AccessTimeOutlinedIcon className='icon'/></span>{movies.runtimeStr}</span>
+<span className="backdrop-details"><span ><StarIcon className='icon' sx={{color:"yellow",marginBottom:"-5px"}}/></span>{movies.imDbRating}</span>
+<span className="backdrop-details"><span ><AccessTimeOutlinedIcon sx={{marginBottom:"-6px"}} className='icon'/></span>{movies.runtimeStr}</span>
 <span className="backdrop-details">{movies.contentRating}</span>
 <span className="backdrop-details">4K</span>
 <span className="backdrop-details">Doloby-Atoms</span>
@@ -103,7 +103,7 @@ console.log(movieList)
             <div className="text-overlay">
               <div className='overlay-title'>{movies.title}</div>
               <div className='overlay-rating'>
-                <StarIcon className='icon' sx={{ color: "yellow" }} />
+                <StarIcon className='icon' sx={{color:"yellow",marginBottom:"-5px"}} />
                 {movies.imDbRating}/10
               </div>
             </div>

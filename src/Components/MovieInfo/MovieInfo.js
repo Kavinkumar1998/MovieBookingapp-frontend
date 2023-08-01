@@ -20,7 +20,6 @@ export  const MovieInfo = () => {
   },[dispatch]);
 
 
-
   return (
     <div className="MovieInfo">
 <Navbar/>
@@ -37,8 +36,8 @@ export  const MovieInfo = () => {
      </div>
      <div className="MovieInfo-right">
 <div className="MovieInfo-title">{selectedMovie.title}</div>
-<span className="MovieInfo-details"><span ><StarIcon className='icon' sx={{color:"yellow"}}/></span>{selectedMovie.imDbRating}</span>
-<span className="MovieInfo-details"><span ><AccessTimeOutlinedIcon className='icon'/></span>{selectedMovie.runtimeStr}</span>
+<span className="MovieInfo-details"><span ><StarIcon className='icon' sx={{color:"yellow",marginBottom:"-5px"}}/></span>{selectedMovie.imDbRating}</span>
+<span className="MovieInfo-details"><span ><AccessTimeOutlinedIcon sx={{marginBottom:"-6px"}} className='icon'/></span>{selectedMovie.runtimeStr}</span>
 <span className="MovieInfo-details">{selectedMovie.contentRating}-Rated</span>
 <span className="MovieInfo-details">4K</span>
 <span className="MovieInfo-details">Doloby-Atoms</span>
@@ -49,7 +48,7 @@ export  const MovieInfo = () => {
 <div className="MovieInfo-details">Box Office  <br/>{selectedMovie.boxOffice && selectedMovie.boxOffice &&(
   <div className="MovieInfo-details">Budget :{selectedMovie.boxOffice.budget}</div>
 )}</div>
-<Button variant="contained" color="success" onClick={()=>{history.push(``)}}>Book Ticket</Button>
+<Button variant="contained" color="success" onClick={()=>{history.push(`/BookTicket`)}}>Book Ticket</Button>
      </div>  
      <div className="trailer-backdrops">
      {selectedMovie.trailer && selectedMovie.trailer.linkEmbed &&(
