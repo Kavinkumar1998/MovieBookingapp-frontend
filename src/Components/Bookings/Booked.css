@@ -1,0 +1,31 @@
+.Booked-main{
+    margin-top:3.5rem;
+    background-color: black;
+    height:100vh;
+}
+.booked-details{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.Booked-main{
+    padding: 30px 30px;
+}
+.booked-details{
+
+}
+.ticket-image{
+    height:10rem;
+}
+.ticket-details-title{
+    font-weight: bolder;
+    font-size:1rem;
+    margin-top:15rem;
+    color:white;
+}
+.ticket-details{
+font-weight: bolder;
+font-size: large;
+padding: 8px;
+color:white;
+}

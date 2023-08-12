@@ -3,9 +3,7 @@
     height:auto;
     background-color: black;
 }
-.mySwiper{
 
-}
 .mySwiper .swiper-button-prev {
     margin-top:-8rem;
     color:white
@@ -46,7 +44,6 @@ padding: 8px;
 }
 
 .Moviepart{
-    
     background-color: black;
     text-align: center;
     max-width: 1240px;

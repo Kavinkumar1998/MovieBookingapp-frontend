@@ -9,6 +9,7 @@ import Navbar from './Components/Navbar/Navbar';
 import { Home } from './Components/Home/Home';
 import { Ticket } from './Components/Ticket/Ticket';
 import { MovieInfo } from './Components/MovieInfo/MovieInfo';
+import { Booked } from './Components/Bookings/Booked';
 
 function App() {
   return (
@@ -49,6 +50,10 @@ function App() {
 
       <Route path="/BookTicket">
         <Ticket/>
+      </Route>
+
+      <Route path="/Bookeddata">
+        <Booked/>
       </Route>
 
 

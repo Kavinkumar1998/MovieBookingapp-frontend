@@ -16,7 +16,7 @@ const Base_URL = "https://ticketbooker.onrender.com";
 //get all data from server
 export const getMovieFromServer= createAsyncThunk(
     "movies/getMovieFromsever",
-    async(_,rejectWithValue)=>{
+    async(_,{rejectWithValue})=>{
         const response = await fetch(`${Base_URL}/getMovie`,{
             method:"GET",
             headers: {
@@ -38,9 +38,9 @@ export const getMovieFromServer= createAsyncThunk(
 
 export const getMovieById= createAsyncThunk(
     "movies/getMovieById",
-    async(id,rejectWithValue)=>{
+    async(id,{rejectWithValue})=>{
         const response = await fetch(`${Base_URL}/movie/${id}`,{
-            meathod:"GET",
+            method:"GET",
             headers: {
                 "x-auth-token": localStorage.getItem("token"),
                "Content-Type":"application/json"
@@ -58,9 +58,9 @@ export const getMovieById= createAsyncThunk(
 //add Movie
 export const addMovie = createAsyncThunk(
     "movies/addMovie",
-    async(movie,rejectWithValue)=>{
+    async(movie,{rejectWithValue})=>{
         const response = await fetch(`${Base_URL}/addMovie`,{
-            meathod:"POST",
+            method:"POST",
              body: JSON.stringify(movie),
             headers: {
                 "x-auth-token": localStorage.getItem("token"),
@@ -79,17 +79,20 @@ export const addMovie = createAsyncThunk(
 //adding booking
 export const addBooking = createAsyncThunk(
     "movies/addBooking",
-    async(Booking,rejectWithValue)=>{
+    async(Booking,{rejectWithValue})=>{
+        console.log(Booking)
         const response = await fetch(`${Base_URL}/addTicket`,{
-            meathod:"POST",
+            method:"POST",
             body:JSON.stringify(Booking),
             headers:{
                 "x-auth-token": localStorage.getItem("token"),
                 "Content-Type":"application/json"
             }
         });
+    
         if (response.ok) {
             const Ticket = await response.json();
+            console.log(Ticket)
             return Ticket;
           } else {
             return rejectWithValue({ error: "Something Went Wrong" });
@@ -100,9 +103,9 @@ export const addBooking = createAsyncThunk(
 //geting booking data
 export const BookingData = createAsyncThunk(
     "movies/BookingData",
-    async(_,rejectWithValue)=>{
+    async(_,{rejectWithValue})=>{
        const response = await fetch(`${Base_URL}/Bookings`,{
-        meathod:"GET",
+        method:"GET",
         headers: {
             "x-auth-token": localStorage.getItem("token"),
            "Content-Type":"application/json"
@@ -111,7 +114,9 @@ export const BookingData = createAsyncThunk(
        if(response.ok){
         const Bookings = await response.json();
         return Bookings
+   
        }else{
+        
         return rejectWithValue({error:"No Bookings Found"})
        }
     }
@@ -120,9 +125,9 @@ export const BookingData = createAsyncThunk(
 //getting Booking data by id
 export const getBookingById = createAsyncThunk(
     "movies/getBookingById",
-    async(id,rejectWithValue)=>{
+    async(id,{rejectWithValue})=>{
         const response = await fetch(`${Base_URL}/Booking/${id}`,{
-            meathod:"GET",
+            method:"GET",
         headers: {
             "x-auth-token": localStorage.getItem("token"),
            "Content-Type":"application/json"
@@ -141,7 +146,7 @@ export const getBookingById = createAsyncThunk(
 //deleteing booking data
 export const deleteBookingData = createAsyncThunk(
     "movies/deleteBookingData",
-    async(id,rejectWithValue)=>{
+    async(id,{rejectWithValue})=>{
         const response = await fetch(`${Base_URL}/cancelBookings/${id}`,{
             method:"DELETE",
             headers: {
@@ -207,7 +212,7 @@ const movieSlice = createSlice({
         })
         .addCase(addBooking.fulfilled,(state,action)=>{
             state.isLoading=false;
-            state.BookingList=action.payload;
+            state.BookingList.push(action.payload);
             state.error = ''
         })
         .addCase(addBooking.rejected,(state,action)=>{
@@ -233,12 +238,12 @@ const movieSlice = createSlice({
         })
         .addCase(getBookingById.fulfilled,(state,action)=>{
             state.isLoading=false;
-            state.selectedMovie=action.payload;
+            state.selectedBooking=action.payload;
             state.error ='';
         })
         .addCase(getBookingById.rejected,(state,action)=>{
             state.isLoading=false;
-            state.selectedMovie={};
+            state.selectedBooking={};
             state.error = action.payload.error;
         })
         .addCase(deleteBookingData.pending,(state)=>{
@@ -246,12 +251,12 @@ const movieSlice = createSlice({
         })
         .addCase(deleteBookingData.fulfilled,(state,action)=>{
             state.isLoading=false;
-            state.selectedMovie=action.payload;
+            state.selectedBooking=action.payload;
             state.error ='';
         })
         .addCase(deleteBookingData.rejected,(state,action)=>{
             state.isLoading=false;
-            state.selectedMovie={};
+            state.selectedBooking={};
             state.error = action.payload.error;
         })
       
