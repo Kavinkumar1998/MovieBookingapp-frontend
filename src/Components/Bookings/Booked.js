@@ -25,7 +25,7 @@ dispatch(BookingData());
   <div className="booked-details">
     {
       BookingList && BookingList.map((tickets)=>(
-        <div className="booked-details" key={tickets._id}>
+        <div className="booked-details-content" key={tickets._id}>
           <img className="ticket-image" src={tickets.movie.image}  alt={tickets.movie.title} />
 <p className="ticket-details-title">{tickets.movie.title}</p>
 <span className="ticket-details"><span ><StarIcon className='icon' sx={{color:"yellow",marginBottom:"-5px"}}/></span>{tickets.movie.imDbRating}</span>
